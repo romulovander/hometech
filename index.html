@@ -7,9 +7,18 @@
     
     <meta name="description" content="Entre para a Rede Nacional Hometech. Torne-se um Técnico Fundador da maior rede de assistência técnica do Brasil. Ganhe até R$ 400/dia.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://redehometech.com.br/">
     <meta property="og:title" content="Rede Nacional Hometech - Ganhe até R$ 400/dia">
     <meta property="og:description" content="Aprenda uma profissão em casa e entre para a maior rede de técnicos do Brasil.">
-    <meta property="og:image" content="https://hometech-site.vercel.app/assets/foto-tecnico-cracha.jpg">
+    <meta property="og:image" content="https://redehometech.com.br/assets/foto-tecnico-cracha.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://redehometech.com.br/">
+    <meta property="twitter:title" content="Rede Nacional Hometech - Ganhe até R$ 400/dia">
+    <meta property="twitter:description" content="Aprenda uma profissão em casa e entre para a maior rede de técnicos do Brasil.">
+    <meta property="twitter:image" content="https://redehometech.com.br/assets/foto-tecnico-cracha.jpg">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -19,7 +28,7 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap');
         body { font-family: 'Inter', sans-serif; }
         .logo-blend { mix-blend-mode: screen; filter: brightness(1.1); }
         .fade-in { animation: fadeIn 0.3s ease-out; }
@@ -40,7 +49,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-900 antialiased leading-relaxed">
 
     <div id="root"></div>
 
@@ -146,13 +155,13 @@
         const BenefitCard = ({ iconName, title, description, step }) => {
             const Icon = Icons[iconName];
             return (
-                <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-900 hover:shadow-xl transition-shadow duration-300 h-full relative overflow-hidden">
-                    <div className="absolute top-0 right-0 bg-blue-100 text-blue-900 font-bold px-3 py-1 rounded-bl-xl text-xs">PASSO {step}</div>
-                    <div className="flex items-center gap-4 mb-3">
-                        <div className="p-3 bg-blue-100 rounded-lg text-blue-900"><Icon size={28} /></div>
-                        <h3 className="text-xl font-bold text-gray-800">{title}</h3>
+                <div className="bg-white p-8 rounded-xl shadow-md border-l-4 border-blue-900 hover:shadow-xl transition-shadow duration-300 h-full relative overflow-hidden">
+                    <div className="absolute top-0 right-0 bg-blue-100 text-blue-900 font-bold px-4 py-2 rounded-bl-xl text-sm">PASSO {step}</div>
+                    <div className="flex items-center gap-4 mb-4">
+                        <div className="p-3 bg-blue-100 rounded-lg text-blue-900"><Icon size={32} /></div>
+                        <h3 className="text-2xl font-bold text-gray-800">{title}</h3>
                     </div>
-                    <p className="text-gray-600 leading-relaxed">{description}</p>
+                    <p className="text-gray-600 leading-relaxed text-lg">{description}</p>
                 </div>
             );
         };
@@ -177,12 +186,12 @@
             const [isOpen, setIsOpen] = useState(false);
             return (
                 <div className="border-b border-gray-200">
-                    <button className="w-full py-4 text-left flex justify-between items-center focus:outline-none" onClick={() => setIsOpen(!isOpen)}>
-                        <span className="font-semibold text-gray-800 text-lg">{question}</span>
+                    <button className="w-full py-6 text-left flex justify-between items-center focus:outline-none" onClick={() => setIsOpen(!isOpen)}>
+                        <span className="font-bold text-gray-900 text-xl">{question}</span>
                         {isOpen ? <Icons.X className="text-orange-500" /> : <Icons.ArrowRight className="text-blue-900" />}
                     </button>
-                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100 pb-4' : 'max-h-0 opacity-0'}`}>
-                        <p className="text-gray-600">{answer}</p>
+                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100 pb-6' : 'max-h-0 opacity-0'}`}>
+                        <p className="text-gray-600 text-lg">{answer}</p>
                     </div>
                 </div>
             );
@@ -206,12 +215,12 @@
 
             return (
                 <div className="mb-8 p-6 bg-blue-50 rounded-xl border border-blue-100 text-left">
-                    <p className="font-bold text-blue-900 mb-2">Ainda não tem certeza? Receba o plano completo:</p>
+                    <p className="font-bold text-blue-900 mb-3 text-lg">Ainda não tem certeza? Receba o plano completo:</p>
                     <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
-                        <input type="email" name="email" placeholder="Seu melhor email..." className="flex-1 p-3 rounded border border-gray-300 focus:outline-none focus:border-orange-500" required value={email} onChange={(e) => setEmail(e.target.value)} disabled={isSending} />
-                        <button type="submit" disabled={isSending} className={`bg-blue-700 hover:bg-blue-800 text-white px-5 py-3 rounded font-bold transition flex items-center justify-center ${isSending ? 'opacity-70 cursor-not-allowed' : ''}`}>{isSending ? 'Enviando...' : 'Quero o PDF'}</button>
+                        <input type="email" name="email" placeholder="Seu melhor email..." className="flex-1 p-4 rounded border border-gray-300 focus:outline-none focus:border-orange-500 text-lg" required value={email} onChange={(e) => setEmail(e.target.value)} disabled={isSending} />
+                        <button type="submit" disabled={isSending} className={`bg-blue-700 hover:bg-blue-800 text-white px-6 py-4 rounded font-bold transition flex items-center justify-center text-lg ${isSending ? 'opacity-70 cursor-not-allowed' : ''}`}>{isSending ? 'Enviando...' : 'Quero o PDF'}</button>
                     </form>
-                    <p className="text-xs text-gray-500 mt-2">Sem spam. Apenas conteúdo sobre a franquia.</p>
+                    <p className="text-sm text-gray-500 mt-2">Sem spam. Apenas conteúdo sobre a franquia.</p>
                 </div>
             );
         };
@@ -285,36 +294,36 @@
         // --- SEÇÃO "A VERDADE DO MERCADO" ---
         const CreatorSection = () => {
             return (
-                <section className="py-20 bg-blue-50 relative overflow-hidden">
+                <section className="py-24 bg-blue-50 relative overflow-hidden">
                     <div className="container mx-auto px-4 relative z-10">
                         <div className="flex flex-col md:flex-row items-center gap-12">
                             <div className="w-full md:w-1/2 flex justify-center md:justify-end">
                                 <div className="relative group">
                                     <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-orange-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
                                     <img src={NOME_FOTO_ROMULO} alt="Rômulo Vander - Fundador" className="relative w-full max-w-md rounded-2xl shadow-2xl border border-white/50 object-cover" onError={(e) => e.target.src = FALLBACK_IMAGES.romulo} />
-                                    <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur text-blue-900 px-4 py-2 rounded-lg shadow-lg">
-                                        <p className="font-extrabold text-2xl">200.000+</p>
-                                        <p className="text-xs uppercase font-bold tracking-wider">Aparelhos Reparados</p>
+                                    <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur text-blue-900 px-6 py-4 rounded-lg shadow-lg">
+                                        <p className="font-extrabold text-3xl">200.000+</p>
+                                        <p className="text-sm uppercase font-bold tracking-wider">Aparelhos Reparados</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-full md:w-1/2 text-left space-y-6">
+                            <div className="w-full md:w-1/2 text-left space-y-8">
                                 <div>
-                                    <span className="text-orange-600 font-bold tracking-wider uppercase text-sm">A Verdade sobre o Mercado</span>
-                                    <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2">Por que criei a Hometech?</h2>
+                                    <span className="text-orange-600 font-bold tracking-wider uppercase text-sm md:text-base">A Verdade sobre o Mercado</span>
+                                    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-3 leading-tight">Por que criei a Hometech?</h2>
                                 </div>
-                                <div className="space-y-4 text-gray-700">
+                                <div className="space-y-6 text-gray-700 text-lg md:text-xl">
                                     <p className="leading-relaxed">
                                         Em 25 anos de bancada e 17 milhões faturados, meu problema nunca foi falta de cliente. <strong>Meu problema era encontrar técnicos.</strong>
                                     </p>
                                     
-                                    <div className="space-y-3 pl-4 border-l-4 border-orange-200">
+                                    <div className="space-y-4 pl-6 border-l-4 border-orange-200 py-2">
                                         <p>❌ <strong>O "Marido Eletricista":</strong> Tenta consertar em casa, não tem a peça e queima a placa de um secador caro.</p>
                                         <p>❌ <strong>O Técnico Genérico:</strong> Sabe arrumar "nave espacial", mas trava no secador porque não conhece os segredos da área.</p>
                                         <p>❌ <strong>O Salão Desesperado:</strong> Me ligava implorando por atendimento e eu tinha que recusar serviço por falta de mão de obra qualificada.</p>
                                     </div>
 
-                                    <p className="font-bold text-blue-900 text-lg pt-2">
+                                    <p className="font-bold text-blue-900 text-xl pt-2">
                                         A ficha caiu. O mercado precisa de Especialistas, não de curiosos.
                                     </p>
                                     
@@ -322,8 +331,8 @@
                                         Criei a Hometech para resolver essas três dores: te dar a qualificação real, o acesso às peças com preço de fábrica e, o principal:
                                     </p>
                                     
-                                    <div className="bg-white p-4 rounded-xl shadow-sm border border-blue-100">
-                                        <p className="font-bold text-gray-900 flex gap-2 items-center"><Icons.CheckCircle size={20} className="text-green-500" /> Eu quero te conectar com as demandas lucrativas do mercado dos salões de beleza de todo Brasil.</p>
+                                    <div className="bg-white p-6 rounded-xl shadow-sm border border-blue-100">
+                                        <p className="font-bold text-gray-900 text-lg flex gap-3 items-center"><Icons.CheckCircle size={28} className="text-green-500 flex-shrink-0" /> Eu quero te conectar com as demandas lucrativas do mercado dos salões de beleza de todo Brasil.</p>
                                     </div>
                                 </div>
                             </div>
@@ -338,179 +347,180 @@
 
             return (
                 <>
-                    <section className="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+                    <section className="relative pt-32 pb-24 md:pt-48 md:pb-40 overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-950 z-0"></div>
                         <div className="absolute inset-0 opacity-10 mix-blend-overlay z-0" style={{ backgroundImage: `url(${NOME_FOTO_BANCADA})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
                         <div className="absolute inset-0 opacity-20 z-0" style={{backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)", backgroundSize: "30px 30px"}}></div>
-                        <div className="container mx-auto px-4 relative z-10 grid md:grid-cols-2 gap-12 items-center">
-                            <div className="text-white space-y-6 text-center md:text-left flex flex-col items-center md:items-start">
-                                <div className="flex flex-col gap-2 items-center md:items-start w-full">
-                                    <div className="inline-flex items-center gap-2 bg-blue-800/50 border border-blue-700/50 rounded-full px-4 py-1.5 backdrop-blur-sm">
+                        <div className="container mx-auto px-4 relative z-10 grid md:grid-cols-2 gap-16 items-center">
+                            <div className="text-white space-y-8 text-center md:text-left flex flex-col items-center md:items-start">
+                                <div className="flex flex-col gap-3 items-center md:items-start w-full">
+                                    <div className="inline-flex items-center gap-2 bg-blue-800/50 border border-blue-700/50 rounded-full px-5 py-2 backdrop-blur-sm">
                                         <span className="relative flex h-3 w-3"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span></span>
-                                        <p className="text-xs md:text-sm text-blue-100 font-medium">Já formamos 142 técnicos em 27 cidades</p>
+                                        <p className="text-sm text-blue-100 font-medium">Já formamos 142 técnicos em 27 cidades</p>
                                     </div>
-                                    <span className="bg-red-600/90 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-flex items-center gap-1 shadow-lg shadow-red-900/20 animate-pulse">🔥 Vagas na sua região esgotando</span>
+                                    <span className="bg-red-600/90 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider inline-flex items-center gap-1 shadow-lg shadow-red-900/20 animate-pulse">🔥 Vagas na sua região esgotando</span>
                                 </div>
                                 
-                                <div className="md:hidden w-full max-w-xs rounded-xl overflow-hidden shadow-2xl border-2 border-orange-500/50 my-4">
+                                <div className="md:hidden w-full max-w-xs rounded-xl overflow-hidden shadow-2xl border-2 border-orange-500/50 my-6">
                                     <img src={NOME_FOTO_TECNICO_CRACHA} alt="Técnico com Crachá" className="w-full h-auto object-cover" />
                                 </div>
 
-                                <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight drop-shadow-lg">Ganhe até <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-300">R$ 400 por dia</span> consertando secadores na sua casa.</h1>
+                                <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight drop-shadow-lg">Ganhe até <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-300">R$ 400 por dia</span> consertando secadores na sua casa.</h1>
                                 
-                                <div className="text-lg md:text-xl text-blue-100 leading-relaxed max-w-lg font-light">
+                                <div className="text-xl text-blue-100 leading-relaxed max-w-xl font-light">
                                     <p>O serviço de 20 minutos que paga R$ 80,00. Entre para a <strong>Hometech</strong>, a rede que te capacita e já conecta técnicos a clientes em 27 cidades.</p>
                                 </div>
 
-                                <div className="bg-white/5 p-6 rounded-2xl border border-white/10 w-full max-w-md backdrop-blur-sm">
-                                    <ul className="space-y-3 text-gray-200 text-sm md:text-base text-left">
-                                        <li className="flex gap-3 items-start"><div className="mt-1 bg-green-500/20 p-1 rounded-full"><Icons.CheckCircle className="text-green-400 w-4 h-4 flex-shrink-0" /></div> <span><strong>Renda Imediata:</strong> Fature até R$ 400/dia</span></li>
-                                        <li className="flex gap-3 items-start"><div className="mt-1 bg-green-500/20 p-1 rounded-full"><Icons.CheckCircle className="text-green-400 w-4 h-4 flex-shrink-0" /></div> <span><strong>Clientes Prontos:</strong> Busca nacional</span></li>
-                                        <li className="flex gap-3 items-start"><div className="mt-1 bg-green-500/20 p-1 rounded-full"><Icons.CheckCircle className="text-green-400 w-4 h-4 flex-shrink-0" /></div> <span><strong>Margem Alta:</strong> Peças com desconto</span></li>
-                                        <li className="flex gap-3 items-start"><div className="mt-1 bg-green-500/20 p-1 rounded-full"><Icons.CheckCircle className="text-green-400 w-4 h-4 flex-shrink-0" /></div> <span><strong>Zero Risco:</strong> Para iniciantes</span></li>
+                                <div className="hidden md:flex items-center gap-4 bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/10 max-w-lg">
+                                    <img src={NOME_FOTO_TECNICO_CRACHA} className="w-20 h-20 rounded-lg object-cover border-2 border-orange-500 shadow-lg" alt="Técnico Hometech" />
+                                    <div>
+                                        <p className="font-bold text-white text-lg">Comece Imediatamente</p>
+                                        <p className="text-sm text-blue-100">Receba seu crachá e acesso ao portal assim que completar o cadastro.</p>
+                                    </div>
+                                </div>
+
+                                <div className="bg-white/5 p-8 rounded-2xl border border-white/10 w-full max-w-lg backdrop-blur-sm">
+                                    <ul className="space-y-4 text-gray-100 text-base md:text-lg text-left">
+                                        <li className="flex gap-4 items-start"><div className="mt-1 bg-green-500/20 p-1.5 rounded-full"><Icons.CheckCircle className="text-green-400 w-5 h-5 flex-shrink-0" /></div> <span><strong>Renda Imediata:</strong> Fature até R$ 400/dia</span></li>
+                                        <li className="flex gap-4 items-start"><div className="mt-1 bg-green-500/20 p-1.5 rounded-full"><Icons.CheckCircle className="text-green-400 w-5 h-5 flex-shrink-0" /></div> <span><strong>Clientes Prontos:</strong> Busca nacional</span></li>
+                                        <li className="flex gap-4 items-start"><div className="mt-1 bg-green-500/20 p-1.5 rounded-full"><Icons.CheckCircle className="text-green-400 w-5 h-5 flex-shrink-0" /></div> <span><strong>Margem Alta:</strong> Peças com desconto</span></li>
+                                        <li className="flex gap-4 items-start"><div className="mt-1 bg-green-500/20 p-1.5 rounded-full"><Icons.CheckCircle className="text-green-400 w-5 h-5 flex-shrink-0" /></div> <span><strong>Zero Risco:</strong> Para iniciantes</span></li>
                                     </ul>
                                 </div>
-                                <div className="pt-2 flex flex-col items-center md:items-start gap-4 w-full">
-                                    <PulseButton text="QUERO ENTENDER COMO GANHAR" onClick={(e) => { e.preventDefault(); document.getElementById('metodo').scrollIntoView({ behavior: 'smooth' }); }} className="w-full md:w-auto text-base py-3 md:text-lg md:py-4 shadow-xl shadow-orange-900/20" />
-                                    <div className="flex items-center gap-2 text-sm text-blue-200/80 bg-blue-950/50 px-4 py-2 rounded-lg border border-blue-900"><Icons.Clock size={16} className="text-orange-400 animate-pulse" /><p className="text-xs">ÚLTIMAS <strong>17 VAGAS POR CIDADE</strong> HOJE</p></div>
+                                <div className="pt-4 flex flex-col items-center md:items-start gap-6 w-full">
+                                    <PulseButton text="QUERO ENTENDER COMO GANHAR" onClick={(e) => { e.preventDefault(); document.getElementById('metodo').scrollIntoView({ behavior: 'smooth' }); }} className="w-full md:w-auto text-lg py-4 md:text-xl md:py-5 shadow-xl shadow-orange-900/20" />
+                                    <div className="flex items-center gap-2 text-sm text-blue-200/80 bg-blue-950/50 px-5 py-2.5 rounded-lg border border-blue-900"><Icons.Clock size={18} className="text-orange-400 animate-pulse" /><p>ÚLTIMAS <strong>17 VAGAS POR CIDADE</strong> HOJE</p></div>
                                 </div>
                             </div>
                             
-                            {/* --- COLUNA DA DIREITA NO DESKTOP/IPAD (Onde estava o "Vácuo") --- */}
-                            <div className="hidden md:block relative w-full h-full min-h-[400px] flex items-center justify-center">
-                                {/* Se o vídeo não estiver ativo, mostra a IMAGEM DO TÉCNICO COM CRACHÁ */}
+                            <div className="hidden md:block relative w-full h-full min-h-[500px] flex items-center justify-center">
                                 {!showVideoHero ? (
-                                    <div className="relative group w-full max-w-md mx-auto cursor-pointer" onClick={() => setShowVideoHero(true)}>
+                                    <div className="relative group w-full max-w-lg mx-auto cursor-pointer" onClick={() => setShowVideoHero(true)}>
                                         <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-blue-500 rounded-2xl blur opacity-40 group-hover:opacity-60 transition duration-1000"></div>
                                         <img src={NOME_FOTO_TECNICO_CRACHA} alt="Técnico com Crachá" className="relative w-full rounded-2xl shadow-2xl border-2 border-white/20 object-cover hover:scale-[1.01] transition duration-300" />
-                                        
-                                        {/* Botão de Play Sobre a Imagem */}
                                         <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="bg-white/90 backdrop-blur text-orange-600 p-4 rounded-full shadow-2xl group-hover:scale-110 transition duration-300 flex items-center gap-2">
-                                                <Icons.Play size={32} fill="currentColor" />
-                                                <span className="font-bold text-sm">VER O VÍDEO</span>
+                                            <div className="bg-white/90 backdrop-blur text-orange-600 p-5 rounded-full shadow-2xl group-hover:scale-110 transition duration-300 flex items-center gap-3">
+                                                <Icons.Play size={36} fill="currentColor" />
+                                                <span className="font-bold text-base tracking-wide">VER O VÍDEO</span>
                                             </div>
                                         </div>
                                     </div>
                                 ) : (
-                                    /* Se clicar, mostra o VÍDEO */
-                                    <div className="relative w-full max-w-md mx-auto aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-700">
+                                    <div className="relative w-full max-w-lg mx-auto aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-700">
                                         <SafeVideoPlayer src={NOME_ARQUIVO_VIDEO} poster={NOME_FOTO_HERO} className="w-full h-full object-cover" />
                                     </div>
                                 )}
                             </div>
-
                         </div>
                     </section>
 
-                    <section className="py-20 bg-white">
-                        <div className="container mx-auto px-4 max-w-5xl">
-                            <div className="text-center mb-12"><h2 className="text-3xl font-bold text-gray-900">Por que a Hometech é diferente?</h2><p className="text-gray-600 mt-2">Não vendemos apenas informação. Construímos carreiras.</p></div>
-                            <div className="overflow-hidden rounded-xl border border-gray-200 shadow-lg">
-                                <div className="grid grid-cols-3 bg-gray-100 p-4 font-bold text-gray-700 text-sm md:text-base">
+                    <section className="py-24 bg-white">
+                        <div className="container mx-auto px-4 max-w-6xl">
+                            <div className="text-center mb-16"><h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">Por que a Hometech é diferente?</h2><p className="text-xl text-gray-600 mt-4">Não vendemos apenas informação. Construímos carreiras.</p></div>
+                            <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-xl">
+                                <div className="grid grid-cols-3 bg-gray-100 p-6 font-bold text-gray-800 text-base md:text-lg">
                                     <div className="text-left pl-4">CRITÉRIO</div><div className="text-center text-gray-500">CURSO COMUM</div><div className="text-center text-orange-600">REDE HOMETECH</div>
                                 </div>
-                                <div className="divide-y divide-gray-200 bg-white">
-                                    <div className="grid grid-cols-3 p-4 items-center"><div className="font-bold text-gray-800 text-sm md:text-base text-left">O que entrega?</div><div className="text-center text-gray-500 text-sm">Apenas vídeos</div><div className="text-center text-blue-900 font-bold text-sm bg-blue-50 py-1 rounded">Vídeos + Identidade + Rede</div></div>
-                                    <div className="grid grid-cols-3 p-4 items-center"><div className="font-bold text-gray-800 text-sm md:text-base text-left">Futuro</div><div className="text-center text-gray-500 text-sm">Você termina o curso</div><div className="text-center text-blue-900 font-bold text-sm bg-blue-50 py-1 rounded">Você começa uma carreira</div></div>
-                                    <div className="grid grid-cols-3 p-4 items-center"><div className="font-bold text-gray-800 text-sm md:text-base text-left">Visibilidade</div><div className="text-center text-gray-500 text-sm">Nenhuma</div><div className="text-center text-blue-900 font-bold text-sm bg-blue-50 py-1 rounded">Perfil Oficial no Site</div></div>
-                                    <div className="grid grid-cols-3 p-4 items-center"><div className="font-bold text-gray-800 text-sm md:text-base text-left">Clientes</div><div className="text-center text-gray-500 text-sm">Se vira sozinho</div><div className="text-center text-blue-900 font-bold text-sm bg-blue-50 py-1 rounded">Acesso à Rede Nacional</div></div>
+                                <div className="divide-y divide-gray-200 bg-white text-base md:text-lg">
+                                    <div className="grid grid-cols-3 p-6 items-center"><div className="font-bold text-gray-800 text-left">O que entrega?</div><div className="text-center text-gray-500 text-sm md:text-base">Apenas vídeos</div><div className="text-center text-blue-900 font-bold bg-blue-50 py-2 rounded">Vídeos + Identidade + Rede</div></div>
+                                    <div className="grid grid-cols-3 p-6 items-center"><div className="font-bold text-gray-800 text-left">Futuro</div><div className="text-center text-gray-500 text-sm md:text-base">Você termina o curso</div><div className="text-center text-blue-900 font-bold bg-blue-50 py-2 rounded">Você começa uma carreira</div></div>
+                                    <div className="grid grid-cols-3 p-6 items-center"><div className="font-bold text-gray-800 text-left">Visibilidade</div><div className="text-center text-gray-500 text-sm md:text-base">Nenhuma</div><div className="text-center text-blue-900 font-bold bg-blue-50 py-2 rounded">Perfil Oficial no Site</div></div>
+                                    <div className="grid grid-cols-3 p-6 items-center"><div className="font-bold text-gray-800 text-left">Clientes</div><div className="text-center text-gray-500 text-sm md:text-base">Se vira sozinho</div><div className="text-center text-blue-900 font-bold bg-blue-50 py-2 rounded">Acesso à Rede Nacional</div></div>
                                 </div>
                             </div>
                         </div>
                     </section>
 
-                    <section id="metodo" className="py-20 bg-gray-100">
+                    <section id="metodo" className="py-24 bg-gray-100">
                         <div className="container mx-auto px-4">
-                            <div className="text-center mb-12"><span className="text-orange-600 font-bold tracking-wider uppercase">Passo a Passo</span><h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Como você vai ganhar dinheiro</h2></div>
-                            <div className="flex flex-col lg:flex-row gap-12 items-center mb-12">
+                            <div className="text-center mb-16"><span className="text-orange-600 font-bold tracking-wider uppercase text-sm md:text-base">Passo a Passo</span><h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-3">Como você vai ganhar dinheiro</h2></div>
+                            <div className="flex flex-col lg:flex-row gap-16 items-center mb-16">
                                 <div className="lg:w-1/2 w-full">
-                                    <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white transform hover:scale-[1.01] transition duration-300 aspect-video">
+                                    <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.01] transition duration-300 aspect-video">
                                         <SafeVideoPlayer src={NOME_ARQUIVO_VIDEO_BANCADA} poster={NOME_FOTO_BANCADA} className="w-full h-full object-cover" />
-                                        <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-6 w-full pointer-events-none"><p className="text-white font-bold text-lg">Sua futura estação de trabalho</p></div>
+                                        <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-8 w-full pointer-events-none"><p className="text-white font-bold text-xl md:text-2xl">Sua futura estação de trabalho</p></div>
                                     </div>
                                 </div>
-                                <div className="lg:w-1/2 w-full grid gap-6">
+                                <div className="lg:w-1/2 w-full grid gap-8">
                                     <BenefitCard iconName="DollarSign" step="1" title="Comece a Faturar" description="Com 5 consertos simples por dia, você já coloca R$ 400 no bolso. Isso te dá R$ 2.000 por semana." />
                                     <BenefitCard iconName="Smartphone" step="2" title="Aprenda o que dá Lucro" description="Sem teoria chata. Você aprende direto a trocar o motor e as peças que dão defeito em 90% dos casos." />
                                     <BenefitCard iconName="Wrench" step="3" title="Monte sua Bancada em Casa" description="Não precisa alugar loja. Com ferramentas básicas e uma mesa, sua sala vira sua fonte de renda." />
-                                    <div className="mt-4"><PulseButton text="QUERO COMEÇAR A FATURAR" href={LINK_DO_CHECKOUT} className="w-full text-base py-3 md:text-lg md:py-4" /></div>
+                                    <div className="mt-6"><PulseButton text="QUERO COMEÇAR A FATURAR" href={LINK_DO_CHECKOUT} className="w-full text-lg py-4 md:text-xl md:py-5" /></div>
                                 </div>
                             </div>
                         </div>
                     </section>
 
-                    <section className="py-20 bg-gray-900 text-white">
+                    <section className="py-24 bg-gray-900 text-white">
                         <div className="container mx-auto px-4">
-                            <div className="text-center mb-16"><span className="bg-orange-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-3">Seu Futuro na Rede</span><h2 className="text-3xl md:text-4xl font-bold">Plano de Crescimento Hometech</h2><p className="text-gray-400 mt-4 max-w-2xl mx-auto">Aqui você não para de crescer. Veja onde você pode chegar.</p></div>
-                            <div className="grid md:grid-cols-3 gap-8 relative">
-                                <div className="hidden md:block absolute top-12 left-0 w-full h-1 bg-gradient-to-r from-orange-600 to-green-600 z-0 transform -translate-y-1/2"></div>
+                            <div className="text-center mb-20"><span className="bg-orange-600 text-sm font-bold px-4 py-1.5 rounded-full uppercase tracking-wider inline-block mb-4">Seu Futuro na Rede</span><h2 className="text-4xl md:text-5xl font-extrabold">Plano de Crescimento Hometech</h2><p className="text-gray-400 mt-4 text-xl max-w-3xl mx-auto">Aqui você não para de crescer. Veja onde você pode chegar.</p></div>
+                            <div className="grid md:grid-cols-3 gap-10 relative max-w-6xl mx-auto">
+                                <div className="hidden md:block absolute top-14 left-0 w-full h-1.5 bg-gradient-to-r from-orange-600 to-green-600 z-0 transform -translate-y-1/2 opacity-30"></div>
                                 
-                                <div className="relative z-10 bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-orange-500 transition-colors">
-                                    <div className="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center font-bold text-xl mb-6 mx-auto md:mx-0 shadow-lg border-4 border-gray-900">1</div>
-                                    <h3 className="text-xl font-bold mb-2 text-white">Técnico Fundador</h3>
-                                    <p className="text-orange-400 text-sm font-bold mb-4">FASE ATUAL (0-3 Meses)</p>
-                                    <ul className="space-y-3 text-gray-300 text-sm">
-                                        <li className="flex gap-2"><Icons.CheckCircle size={16} className="text-green-500"/> Aprende a consertar do zero</li>
-                                        <li className="flex gap-2"><Icons.CheckCircle size={16} className="text-green-500"/> <strong>Desconto imediato em peças</strong></li>
-                                        <li className="flex gap-2"><Icons.CheckCircle size={16} className="text-green-500"/> Ganha perfil oficial no site</li>
-                                        <li className="flex gap-2"><Icons.CheckCircle size={16} className="text-green-500"/> Fatura até R$ 4.000/mês</li>
+                                <div className="relative z-10 bg-gray-800 p-8 rounded-3xl border-2 border-gray-700 hover:border-orange-500 transition-colors shadow-2xl flex flex-col items-center text-center">
+                                    <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center font-bold text-2xl mb-6 shadow-lg border-4 border-gray-900">1</div>
+                                    <h3 className="text-2xl font-bold mb-2 text-white">Técnico Fundador</h3>
+                                    <p className="text-orange-400 text-sm font-bold mb-6 tracking-wide">FASE ATUAL (0-3 Meses)</p>
+                                    <ul className="space-y-4 text-gray-300 text-base text-left w-full pl-4">
+                                        <li className="flex gap-3"><Icons.CheckCircle size={20} className="text-green-500 flex-shrink-0"/> Aprende a consertar do zero</li>
+                                        <li className="flex gap-3"><Icons.CheckCircle size={20} className="text-green-500 flex-shrink-0"/> <strong>Desconto imediato em peças</strong></li>
+                                        <li className="flex gap-3"><Icons.CheckCircle size={20} className="text-green-500 flex-shrink-0"/> Ganha perfil oficial no site</li>
+                                        <li className="flex gap-3"><Icons.CheckCircle size={20} className="text-green-500 flex-shrink-0"/> Fatura até R$ 4.000/mês</li>
                                     </ul>
                                 </div>
 
-                                <div className="relative z-10 bg-gray-800 p-8 rounded-2xl border border-gray-700 opacity-90">
-                                    <div className="w-12 h-12 bg-blue-700 rounded-full flex items-center justify-center font-bold text-xl mb-6 mx-auto md:mx-0 shadow-lg border-4 border-gray-900">2</div>
-                                    <h3 className="text-xl font-bold mb-2 text-white">Especialista Regional</h3>
-                                    <p className="text-blue-400 text-sm font-bold mb-4">MÉDIO PRAZO (3-12 Meses)</p>
-                                    <ul className="space-y-3 text-gray-300 text-sm">
-                                        <li className="flex gap-2"><Icons.TrendingUp size={16} className="text-blue-400"/> Volume maior de clientes</li>
-                                        <li className="flex gap-2"><Icons.Award size={16} className="text-blue-400"/> Selo de Verificação Ouro</li>
-                                        <li className="flex gap-2"><Icons.Star size={16} className="text-blue-400"/> Referência na cidade</li>
+                                <div className="relative z-10 bg-gray-800 p-8 rounded-3xl border-2 border-gray-700 hover:border-blue-500 transition-colors shadow-2xl flex flex-col items-center text-center">
+                                    <div className="w-16 h-16 bg-blue-700 rounded-full flex items-center justify-center font-bold text-2xl mb-6 shadow-lg border-4 border-gray-900">2</div>
+                                    <h3 className="text-2xl font-bold mb-2 text-white">Especialista Regional</h3>
+                                    <p className="text-blue-400 text-sm font-bold mb-6 tracking-wide">MÉDIO PRAZO (3-12 Meses)</p>
+                                    <ul className="space-y-4 text-gray-300 text-base text-left w-full pl-4">
+                                        <li className="flex gap-3"><Icons.TrendingUp size={20} className="text-blue-400 flex-shrink-0"/> Volume maior de clientes</li>
+                                        <li className="flex gap-3"><Icons.Award size={20} className="text-blue-400 flex-shrink-0"/> Selo de Verificação Ouro</li>
+                                        <li className="flex gap-3"><Icons.Star size={20} className="text-blue-400 flex-shrink-0"/> Referência na cidade</li>
                                     </ul>
                                 </div>
 
-                                <div className="relative z-10 bg-gray-800 p-8 rounded-2xl border border-green-900/50 hover:border-green-500 transition-colors opacity-100">
-                                    <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center font-bold text-xl mb-6 mx-auto md:mx-0 shadow-lg border-4 border-gray-900 text-white">3</div>
-                                    <h3 className="text-xl font-bold mb-2 text-white">Supervisor / Franquia</h3>
-                                    <p className="text-green-400 text-sm font-bold mb-4">LONGO PRAZO (Após 1 Ano)</p>
-                                    <ul className="space-y-3 text-gray-300 text-sm">
-                                        <li className="flex gap-2"><Icons.Lock size={16} className="text-green-700"/> <strong>CD Distribuidor na Região</strong></li>
-                                        <li className="flex gap-2"><Icons.Lock size={16} className="text-green-700"/> Gestão de outros técnicos</li>
-                                        <li className="flex gap-2"><Icons.Lock size={16} className="text-green-700"/> Participação nos lucros</li>
+                                <div className="relative z-10 bg-gray-800 p-8 rounded-3xl border-2 border-green-600/60 hover:border-green-500 transition-colors shadow-2xl flex flex-col items-center text-center">
+                                    <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center font-bold text-2xl mb-6 shadow-lg border-4 border-gray-900 text-white">3</div>
+                                    <h3 className="text-2xl font-bold mb-2 text-white">Supervisor / Franquia</h3>
+                                    <p className="text-green-400 text-sm font-bold mb-6 tracking-wide">LONGO PRAZO (Após 1 Ano)</p>
+                                    <ul className="space-y-4 text-gray-300 text-base text-left w-full pl-4">
+                                        <li className="flex gap-3"><Icons.Lock size={20} className="text-green-500 flex-shrink-0"/> <strong>CD Distribuidor na Região</strong></li>
+                                        <li className="flex gap-3"><Icons.Lock size={20} className="text-green-500 flex-shrink-0"/> Gestão de outros técnicos</li>
+                                        <li className="flex gap-3"><Icons.Lock size={20} className="text-green-500 flex-shrink-0"/> Participação nos lucros</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </section>
 
-                    {/* --- AQUI ENTRA A NOVA SEÇÃO DO RÔMULO --- */}
                     <CreatorSection />
 
-                    <section id="oferta" className="py-20 bg-gray-900 border-t border-gray-800">
+                    <section id="oferta" className="py-24 bg-gray-900 border-t border-gray-800">
                         <div className="container mx-auto px-4">
-                            <div className="max-w-3xl mx-auto bg-white rounded-2xl overflow-hidden shadow-2xl">
-                                <div className="bg-orange-600 p-4 text-center"><span className="text-white font-bold text-lg uppercase tracking-wide">Convite Exclusivo: Kit Fundador</span></div>
-                                <div className="p-8 md:p-12 text-center">
-                                    <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Garanta sua vaga na Rede Nacional</h2>
-                                    <p className="text-gray-600 mb-8">Tudo o que você precisa para aprender o ofício e começar a faturar imediatamente.</p>
-                                    <div className="text-left space-y-4 mb-10 max-w-md mx-auto">
-                                        <div className="flex items-center gap-3"><Icons.CheckCircle className="text-green-500 flex-shrink-0" /><span className="text-gray-700 font-bold">Treinamento Técnico Completo (R$ 1.997)</span></div>
-                                        <div className="flex items-center gap-3"><Icons.MapPin className="text-blue-600 flex-shrink-0" /><span className="text-gray-700 font-bold">Perfil Oficial no Site Hometech (Inestimável)</span></div>
-                                        <div className="flex items-center gap-3"><Icons.CheckCircle className="text-green-500 flex-shrink-0" /><span className="text-gray-700">Acesso a Fornecedores de Peças</span></div>
-                                        <div className="flex items-center gap-3"><Icons.CheckCircle className="text-green-500 flex-shrink-0" /><span className="text-gray-700">Certificado Digital Reconhecido</span></div>
-                                        <div className="flex items-center gap-3"><Icons.Users className="text-green-500 flex-shrink-0" /><span className="text-gray-700">Grupo de Suporte Fundadores</span></div>
+                            <div className="max-w-4xl mx-auto bg-white rounded-3xl overflow-hidden shadow-2xl">
+                                <div className="bg-orange-600 p-5 text-center"><span className="text-white font-bold text-xl uppercase tracking-wide">Convite Exclusivo: Kit Fundador</span></div>
+                                <div className="p-10 md:p-16 text-center">
+                                    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Garanta sua vaga na Rede Nacional</h2>
+                                    <p className="text-gray-600 mb-10 text-xl">Tudo o que você precisa para aprender o ofício e começar a faturar imediatamente.</p>
+                                    <div className="text-left space-y-5 mb-12 max-w-lg mx-auto text-lg">
+                                        <div className="flex items-center gap-4"><Icons.CheckCircle size={24} className="text-green-500 flex-shrink-0" /><span className="text-gray-700 font-bold">Treinamento Técnico Completo (R$ 1.997)</span></div>
+                                        <div className="flex items-center gap-4"><Icons.MapPin size={24} className="text-blue-600 flex-shrink-0" /><span className="text-gray-700 font-bold">Perfil Oficial no Site Hometech (Inestimável)</span></div>
+                                        <div className="flex items-center gap-4"><Icons.CheckCircle size={24} className="text-green-500 flex-shrink-0" /><span className="text-gray-700">Acesso a Fornecedores de Peças</span></div>
+                                        <div className="flex items-center gap-4"><Icons.CheckCircle size={24} className="text-green-500 flex-shrink-0" /><span className="text-gray-700">Certificado Digital Reconhecido</span></div>
+                                        <div className="flex items-center gap-4"><Icons.Users size={24} className="text-green-500 flex-shrink-0" /><span className="text-gray-700">Grupo de Suporte Fundadores</span></div>
                                     </div>
                                     <LeadCaptureForm />
-                                    <div className="mb-8 p-4 bg-blue-50 rounded-lg border border-blue-100">
-                                        <p className="text-gray-500 text-sm uppercase mb-1">Preço para Membros Fundadores:</p>
-                                        <div className="flex justify-center items-end gap-1 text-blue-900"><span className="text-2xl font-bold mb-2">12x de</span><span className="text-6xl font-extrabold tracking-tighter">R$ 34,90</span></div>
-                                        <p className="text-gray-600 text-sm mt-2">ou <strong>R$ 347,00</strong> à vista</p>
+                                    <div className="mb-10 p-6 bg-blue-50 rounded-2xl border-2 border-blue-100">
+                                        <p className="text-gray-500 text-base uppercase mb-2 font-bold tracking-wider">Preço para Membros Fundadores:</p>
+                                        <div className="flex justify-center items-end gap-2 text-blue-900"><span className="text-3xl font-bold mb-3">12x de</span><span className="text-7xl font-extrabold tracking-tighter">R$ 34,90</span></div>
+                                        <p className="text-gray-600 text-lg mt-2">ou <strong>R$ 347,00</strong> à vista</p>
                                     </div>
-                                    <PulseButton text="GARANTIR MINHA VAGA DE FUNDADOR" href={LINK_DO_CHECKOUT} className="w-full md:w-auto text-base py-3 md:text-lg md:py-5" />
-                                    <div className="mt-8 pt-6 border-t border-gray-200">
-                                        <div className="flex flex-col items-center gap-3">
-                                            <div className="flex items-center justify-center gap-2 text-sm text-gray-500 mt-1"><Icons.Award size={16} className="text-orange-500" /><span>Risco Zero: Garantia Incondicional de 7 dias.</span></div>
-                                            <p className="text-[10px] text-gray-400 mt-2 max-w-xs text-center">Isso não é promessa de renda fixa ou emprego. Os valores apresentados são médias reais de técnicos ativos da rede. Seu resultado depende do seu esforço, disponibilidade e região.</p>
+                                    <PulseButton text="GARANTIR MINHA VAGA DE FUNDADOR" href={LINK_DO_CHECKOUT} className="w-full md:w-auto text-xl py-5 md:text-2xl md:py-6 shadow-2xl" />
+                                    <div className="mt-10 pt-8 border-t border-gray-200">
+                                        <div className="flex flex-col items-center gap-4">
+                                            <div className="flex items-center justify-center gap-2 text-base text-gray-500 font-medium"><Icons.Award size={20} className="text-orange-500" /><span>Risco Zero: Garantia Incondicional de 7 dias.</span></div>
+                                            <p className="text-xs text-gray-400 mt-2 max-w-sm text-center">Isso não é promessa de renda fixa ou emprego. Os valores apresentados são médias reais de técnicos ativos da rede. Seu resultado depende do seu esforço, disponibilidade e região.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -518,10 +528,10 @@
                         </div>
                     </section>
 
-                    <section className="py-16 bg-white">
-                        <div className="container mx-auto px-4 max-w-2xl">
-                            <h2 className="text-2xl font-bold text-center text-gray-800 mb-10">Dúvidas Frequentes</h2>
-                            <div className="space-y-4">
+                    <section className="py-24 bg-white">
+                        <div className="container mx-auto px-4 max-w-3xl">
+                            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">Dúvidas Frequentes</h2>
+                            <div className="space-y-6">
                                 <FaqItem question="Preciso ter experiência anterior?" answer="Zero. O método foi desenhado para quem nunca abriu um parafuso. Você aprende do básico ao avançado." />
                                 <FaqItem question="O que é o Kit Fundador?" answer="É o pacote completo de entrada na rede: inclui o curso técnico, seu cadastro no site, acesso a peças e suporte." />
                                 <FaqItem question="Como recebo clientes pelo site?" answer="Ao concluir o treinamento, seu perfil é ativado na nossa busca por CEP. Clientes da sua região poderão te encontrar direto no mapa." />
@@ -542,55 +552,55 @@
                 setFilteredTechs(filtered);
             };
             return (
-                <div className="pt-20">
-                    <section className="bg-blue-900 text-white py-16 md:py-24 relative overflow-hidden">
+                <div className="pt-24">
+                    <section className="bg-blue-900 text-white py-20 md:py-32 relative overflow-hidden">
                         <div className="absolute inset-0 opacity-20" style={{backgroundImage: "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')"}}></div>
                         <div className="container mx-auto px-4 relative z-10 text-center">
-                            <h1 className="text-3xl md:text-5xl font-extrabold mb-6">Encontre um Técnico Certificado <span className="text-orange-500">na sua Cidade</span></h1>
-                            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">Conserto rápido, peças originais e profissionais treinados pela Hometech.</p>
-                            <div className="max-w-xl mx-auto bg-white p-2 rounded-lg flex shadow-xl">
-                                <div className="flex items-center pl-4 text-gray-400"><Icons.MapPin size={20} /></div>
-                                <input type="text" placeholder="Digite sua cidade (ex: São Paulo, Belo Horizonte...)" className="flex-1 p-4 text-gray-800 outline-none rounded-l-lg" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSearch()} />
-                                <button onClick={handleSearch} className="bg-orange-600 hover:bg-orange-700 text-white px-6 md:px-8 py-3 rounded-lg font-bold transition flex items-center gap-2"><Icons.Search size={20} /> <span className="hidden md:inline">Buscar</span></button>
+                            <h1 className="text-4xl md:text-6xl font-extrabold mb-8">Encontre um Técnico Certificado <span className="text-orange-500">na sua Cidade</span></h1>
+                            <p className="text-xl md:text-2xl text-blue-100 mb-10 max-w-3xl mx-auto">Conserto rápido, peças originais e profissionais treinados pela Hometech.</p>
+                            <div className="max-w-2xl mx-auto bg-white p-2 rounded-xl flex shadow-2xl">
+                                <div className="flex items-center pl-4 text-gray-400"><Icons.MapPin size={24} /></div>
+                                <input type="text" placeholder="Digite sua cidade (ex: São Paulo, Belo Horizonte...)" className="flex-1 p-4 text-lg text-gray-800 outline-none rounded-l-lg" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSearch()} />
+                                <button onClick={handleSearch} className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-bold transition flex items-center gap-2 text-lg"><Icons.Search size={24} /> <span className="hidden md:inline">Buscar</span></button>
                             </div>
                         </div>
                     </section>
-                    <section className="py-16 bg-gray-50">
+                    <section className="py-20 bg-gray-50">
                         <div className="container mx-auto px-4">
-                            <div className="flex items-center justify-between mb-8"><h2 className="text-2xl font-bold text-gray-800">Técnicos Recomendados</h2><div className="text-sm text-gray-500 flex items-center gap-2"><Icons.Filter size={16} /> Mostrando {filteredTechs.length} resultados</div></div>
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div className="flex items-center justify-between mb-10"><h2 className="text-3xl font-bold text-gray-800">Técnicos Recomendados</h2><div className="text-base text-gray-500 flex items-center gap-2"><Icons.Filter size={20} /> Mostrando {filteredTechs.length} resultados</div></div>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {filteredTechs.length > 0 ? (
                                     filteredTechs.map(tech => (
-                                        <div key={tech.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition border border-gray-100">
-                                            <div className="p-6">
-                                                <div className="flex items-start gap-4 mb-4">
-                                                    <img src={tech.foto} alt={tech.nome} className="w-16 h-16 rounded-full object-cover border-2 border-orange-500" onError={(e) => e.target.src = FALLBACK_IMAGES.tecnico_padrao} />
+                                        <div key={tech.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition border border-gray-100">
+                                            <div className="p-8">
+                                                <div className="flex items-start gap-5 mb-6">
+                                                    <img src={tech.foto} alt={tech.nome} className="w-20 h-20 rounded-full object-cover border-2 border-orange-500" onError={(e) => e.target.src = FALLBACK_IMAGES.tecnico_padrao} />
                                                     <div>
-                                                        <h3 className="font-bold text-xl text-gray-900">{tech.nome}</h3>
-                                                        <div className="flex items-center gap-1 text-orange-500 text-sm font-bold"><Icons.Star size={14} fill="currentColor" /> {tech.avaliacao} <span className="text-gray-400 font-normal">({tech.avaliacoesCount} avaliações)</span></div>
-                                                        <div className="flex items-center gap-1 text-gray-500 text-sm mt-1"><Icons.MapPin size={14} /> {tech.cidade} - {tech.estado}</div>
+                                                        <h3 className="font-bold text-2xl text-gray-900">{tech.nome}</h3>
+                                                        <div className="flex items-center gap-1 text-orange-500 text-base font-bold mt-1"><Icons.Star size={16} fill="currentColor" /> {tech.avaliacao} <span className="text-gray-400 font-normal">({tech.avaliacoesCount} avaliações)</span></div>
+                                                        <div className="flex items-center gap-1 text-gray-500 text-sm mt-1"><Icons.MapPin size={16} /> {tech.cidade} - {tech.estado}</div>
                                                     </div>
                                                 </div>
-                                                <div className="space-y-3 mb-6">
-                                                    <div className="flex items-center gap-2 text-sm text-gray-600"><Icons.Clock size={16} className="text-blue-900" /><span>Responde em: <strong>{tech.tempoResposta}</strong></span></div>
-                                                    <div className="flex flex-wrap gap-2">{tech.especialidades.map((esp, idx) => (<span key={idx} className="bg-blue-50 text-blue-800 text-xs px-2 py-1 rounded font-medium">{esp}</span>))}</div>
+                                                <div className="space-y-4 mb-8">
+                                                    <div className="flex items-center gap-3 text-base text-gray-600"><Icons.Clock size={20} className="text-blue-900" /><span>Responde em: <strong>{tech.tempoResposta}</strong></span></div>
+                                                    <div className="flex flex-wrap gap-2">{tech.especialidades.map((esp, idx) => (<span key={idx} className="bg-blue-50 text-blue-800 text-sm px-3 py-1.5 rounded-full font-medium">{esp}</span>))}</div>
                                                 </div>
-                                                <a href={`https://wa.me/${tech.whatsapp}?text=Olá ${tech.nome}, encontrei seu perfil no site Hometech e preciso de um orçamento.`} target="_blank" rel="noopener noreferrer" className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition"><Icons.MessageCircle size={20} /> Chamar no WhatsApp</a>
+                                                <a href={`https://wa.me/${tech.whatsapp}?text=Olá ${tech.nome}, encontrei seu perfil no site Hometech e preciso de um orçamento.`} target="_blank" rel="noopener noreferrer" className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-3 transition text-lg shadow-md"><Icons.MessageCircle size={24} /> Chamar no WhatsApp</a>
                                             </div>
-                                            <div className="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs text-center text-gray-500 flex justify-center items-center gap-1"><Icons.ShieldCheck size={12} className="text-green-500" /> Técnico Certificado Hometech</div>
+                                            <div className="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-center text-gray-500 flex justify-center items-center gap-2 font-medium"><Icons.ShieldCheck size={16} className="text-green-500" /> Técnico Certificado Hometech</div>
                                         </div>
                                     ))
                                 ) : (
-                                    <div className="col-span-full text-center py-12"><p className="text-gray-500 text-lg">Nenhum técnico encontrado nesta região.</p><button onClick={() => {setSearchTerm(""); setFilteredTechs(MOCK_TECNICOS)}} className="text-orange-600 font-bold mt-2 hover:underline">Ver todos os técnicos</button></div>
+                                    <div className="col-span-full text-center py-16"><p className="text-gray-500 text-xl">Nenhum técnico encontrado nesta região.</p><button onClick={() => {setSearchTerm(""); setFilteredTechs(MOCK_TECNICOS)}} className="text-orange-600 font-bold mt-4 hover:underline text-lg">Ver todos os técnicos</button></div>
                                 )}
                             </div>
                         </div>
                     </section>
-                    <section className="py-20 bg-orange-600 text-white text-center">
+                    <section className="py-24 bg-orange-600 text-white text-center">
                         <div className="container mx-auto px-4">
-                            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Faça parte da Maior Rede de Técnicos do Brasil</h2>
-                            <p className="text-xl mb-8 max-w-2xl mx-auto text-orange-100">Ganhe visibilidade, tenha acesso a clientes qualificados, treinamentos contínuos e descontos em peças.</p>
-                            <button onClick={openRegistration} className="bg-white text-orange-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-full shadow-lg text-lg transition transform hover:scale-105">QUERO SER UM TÉCNICO CERTIFICADO</button>
+                            <h2 className="text-4xl md:text-5xl font-extrabold mb-6">Faça parte da Maior Rede de Técnicos do Brasil</h2>
+                            <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-orange-100">Ganhe visibilidade, tenha acesso a clientes qualificados, treinamentos contínuos e descontos em peças.</p>
+                            <button onClick={openRegistration} className="bg-white text-orange-600 hover:bg-gray-100 font-bold py-5 px-10 rounded-full shadow-2xl text-xl transition transform hover:scale-105">QUERO SER UM TÉCNICO CERTIFICADO</button>
                         </div>
                     </section>
                 </div>
@@ -622,42 +632,42 @@
             };
 
             return (
-                <div className="font-sans text-gray-800 bg-gray-50 min-h-screen flex flex-col">
+                <div className="font-sans text-gray-900 bg-gray-50 min-h-screen flex flex-col">
                     <TechRegistrationModal isOpen={isRegistrationOpen} onClose={() => setIsRegistrationOpen(false)} />
                     <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
                     <SalonRegistrationModal isOpen={isSalonRegistrationOpen} onClose={() => setIsSalonRegistrationOpen(false)} />
                     <BackToTopButton />
                     <FloatingWhatsApp />
 
-                    <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-blue-900 shadow-lg py-2' : 'bg-transparent py-4'}`}>
+                    <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-blue-900 shadow-xl py-3' : 'bg-transparent py-6'}`}>
                         <div className="container mx-auto px-4 flex justify-between items-center">
                             <div className="flex items-center cursor-pointer" onClick={() => setActiveTab('home')}>
                                 {!logoError ? (
-                                    <img src={NOME_ARQUIVO_LOGO} alt="Nano Franquia Hometech" className="h-10 md:h-16 w-auto object-contain logo-blend" onError={() => setLogoError(true)} />
+                                    <img src={NOME_ARQUIVO_LOGO} alt="Nano Franquia Hometech" className={`transition-all duration-300 ${scrolled ? 'h-10 md:h-12' : 'h-12 md:h-16'} w-auto object-contain logo-blend`} onError={() => setLogoError(true)} />
                                 ) : (
-                                    <div className="flex items-center gap-2"><div className="bg-orange-500 p-1 rounded"><Icons.Wrench className="text-white" size={24} /></div><span className="text-white font-bold text-xl tracking-tighter">NF HOMETECH</span></div>
+                                    <div className="flex items-center gap-2"><div className="bg-orange-500 p-2 rounded-lg"><Icons.Wrench className="text-white" size={28} /></div><span className="text-white font-bold text-2xl tracking-tighter">NF HOMETECH</span></div>
                                 )}
                             </div>
                             
-                            <button className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}><Icons.Menu size={28} /></button>
+                            <button className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}><Icons.Menu size={32} /></button>
 
-                            <nav className="hidden md:flex gap-2 p-1 bg-blue-800/50 rounded-full border border-blue-700/50 items-center">
-                                <button onClick={() => setActiveTab('home')} className={`px-4 py-2 rounded-full text-sm font-bold transition-all ${activeTab === 'home' ? 'bg-orange-600 text-white shadow-md' : 'text-blue-100 hover:text-white hover:bg-blue-700'}`}>Seja um Fundador</button>
-                                <button onClick={() => setActiveTab('tecnicos')} className={`px-4 py-2 rounded-full text-sm font-bold transition-all ${activeTab === 'tecnicos' ? 'bg-orange-600 text-white shadow-md' : 'text-blue-100 hover:text-white hover:bg-blue-700'}`}>Encontrar Técnico</button>
-                                <button onClick={() => setIsSalonRegistrationOpen(true)} className="px-4 py-2 rounded-full text-sm font-bold text-blue-100 hover:text-white hover:bg-blue-700 flex items-center gap-2">Sou Salão</button>
-                                <button onClick={() => setIsLoginOpen(true)} className="px-4 py-2 rounded-full text-sm font-bold text-blue-100 hover:text-white hover:bg-blue-700 flex items-center gap-2"><Icons.User size={16} /> Área do Aluno</button>
+                            <nav className="hidden md:flex gap-3 p-1.5 bg-blue-800/50 rounded-full border border-blue-700/50 items-center backdrop-blur-md">
+                                <button onClick={() => setActiveTab('home')} className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === 'home' ? 'bg-orange-600 text-white shadow-lg transform scale-105' : 'text-blue-100 hover:text-white hover:bg-blue-700'}`}>Seja um Fundador</button>
+                                <button onClick={() => setActiveTab('tecnicos')} className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === 'tecnicos' ? 'bg-orange-600 text-white shadow-lg transform scale-105' : 'text-blue-100 hover:text-white hover:bg-blue-700'}`}>Encontrar Técnico</button>
+                                <button onClick={() => setIsSalonRegistrationOpen(true)} className="px-6 py-2.5 rounded-full text-sm font-bold text-blue-100 hover:text-white hover:bg-blue-700 flex items-center gap-2">Sou Salão</button>
+                                <button onClick={() => setIsLoginOpen(true)} className="px-6 py-2.5 rounded-full text-sm font-bold text-blue-100 hover:text-white hover:bg-blue-700 flex items-center gap-2"><Icons.User size={18} /> Área do Aluno</button>
                             </nav>
 
-                            <button onClick={scrollToCheckout} className="hidden md:block bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-full font-bold transition text-sm">Entrar Agora</button>
+                            <button onClick={scrollToCheckout} className="hidden md:block bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full font-bold transition text-base shadow-lg hover:shadow-orange-500/50 transform hover:-translate-y-0.5">Entrar Agora</button>
                         </div>
 
                         {isMenuOpen && (
-                            <div className="md:hidden bg-blue-900 absolute w-full p-4 flex flex-col gap-4 shadow-xl border-t border-blue-800">
-                                <button onClick={() => {setIsLoginOpen(true); setIsMenuOpen(false)}} className="text-left text-lg font-bold py-2 px-4 rounded w-full text-white bg-blue-800/50 flex items-center gap-2"><Icons.User size={20} /> Área do Aluno</button>
-                                <button onClick={() => {setActiveTab('home'); setIsMenuOpen(false)}} className={`text-left text-lg font-bold py-2 px-4 rounded w-full ${activeTab === 'home' ? 'bg-blue-800 text-orange-400' : 'text-white'}`}>Quero ser Fundador</button>
-                                <button onClick={() => {setActiveTab('tecnicos'); setIsMenuOpen(false)}} className={`text-left text-lg font-bold py-2 px-4 rounded w-full ${activeTab === 'tecnicos' ? 'bg-blue-800 text-orange-400' : 'text-white'}`}>Encontrar Técnico</button>
-                                <button onClick={() => {setIsSalonRegistrationOpen(true); setIsMenuOpen(false)}} className="text-left text-lg font-bold py-2 px-4 rounded w-full text-white">Sou Salão</button>
-                                <button onClick={() => {scrollToCheckout(); setIsMenuOpen(false)}} className="bg-orange-600 text-white py-3 rounded font-bold w-full mt-4">Quero Minha Vaga</button>
+                            <div className="md:hidden bg-blue-900 absolute w-full p-6 flex flex-col gap-6 shadow-2xl border-t border-blue-800">
+                                <button onClick={() => {setIsLoginOpen(true); setIsMenuOpen(false)}} className="text-left text-xl font-bold py-3 px-6 rounded-xl w-full text-white bg-blue-800/50 flex items-center gap-3"><Icons.User size={24} /> Área do Aluno</button>
+                                <button onClick={() => {setActiveTab('home'); setIsMenuOpen(false)}} className={`text-left text-xl font-bold py-3 px-6 rounded-xl w-full ${activeTab === 'home' ? 'bg-blue-800 text-orange-400 border border-blue-700' : 'text-white'}`}>Quero ser Fundador</button>
+                                <button onClick={() => {setActiveTab('tecnicos'); setIsMenuOpen(false)}} className={`text-left text-xl font-bold py-3 px-6 rounded-xl w-full ${activeTab === 'tecnicos' ? 'bg-blue-800 text-orange-400 border border-blue-700' : 'text-white'}`}>Encontrar Técnico</button>
+                                <button onClick={() => {setIsSalonRegistrationOpen(true); setIsMenuOpen(false)}} className="text-left text-xl font-bold py-3 px-6 rounded-xl w-full text-white">Sou Salão</button>
+                                <button onClick={() => {scrollToCheckout(); setIsMenuOpen(false)}} className="bg-orange-600 text-white py-4 rounded-xl font-bold w-full mt-2 text-lg shadow-lg">Quero Minha Vaga</button>
                             </div>
                         )}
                     </header>
@@ -670,18 +680,18 @@
                         )}
                     </main>
 
-                    <footer className="bg-gray-900 text-gray-400 py-10 border-t border-gray-800">
-                        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <footer className="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+                        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
                             <div className="flex items-center cursor-pointer" onClick={() => setActiveTab('home')}>
                                 {!logoFooterError ? (
-                                    <img src={NOME_ARQUIVO_LOGO} alt="Nano Franquia Hometech" className="h-8 md:h-12 w-auto object-contain logo-blend opacity-90" onError={() => setLogoFooterError(true)} />
+                                    <img src={NOME_ARQUIVO_LOGO} alt="Nano Franquia Hometech" className="h-10 md:h-14 w-auto object-contain logo-blend opacity-90" onError={() => setLogoFooterError(true)} />
                                 ) : (
-                                    <div className="flex items-center gap-2"><Icons.Wrench className="text-orange-600" size={20} /><span className="text-white font-bold text-lg">NF HOMETECH</span></div>
+                                    <div className="flex items-center gap-3"><Icons.Wrench className="text-orange-600" size={24} /><span className="text-white font-bold text-xl">NF HOMETECH</span></div>
                                 )}
                             </div>
-                            <div className="text-sm text-center md:text-right">
+                            <div className="text-base text-center md:text-right space-y-2">
                                 <p>&copy; 2024 Nano Franquia Hometech. Todos os direitos reservados.</p>
-                                <p className="mt-1">CNPJ: 50.437.828/0001-80 | Contato: suporte@hometech.com.br</p>
+                                <p className="text-gray-500">CNPJ: 50.437.828/0001-80 | Contato: suporte@hometech.com.br</p>
                             </div>
                         </div>
                     </footer>
